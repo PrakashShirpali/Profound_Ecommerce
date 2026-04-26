@@ -1,0 +1,402 @@
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+}
+
+.body{
+background-color:   #e6b800
+;
+}
+.navbar{
+    height: 60px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Box 1 logo */
+
+.nav-logo{
+    height: 55px;
+    width: 100px;
+}
+
+
+.logo{
+    background-image: url("/Images/amazon.jpg");
+    height: 50px;
+    width: 100px;
+    background-size: cover;
+}
+
+.border{
+    border: solid transparent;
+}
+
+.border:hover{
+    border: 2px solid white;
+}
+
+/* Box 2 address */
+
+.nav-address{
+    margin: 10px;
+}
+
+.add-icon{
+    display: flex;
+    align-items: center;
+}
+
+.add-sec{
+    margin: 3px;
+}
+
+
+/* Box 3 search */
+
+.nav-search{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: pink;
+    width: 550px;
+    height: 37px;
+    border-radius: 3px;
+}
+
+.search-input{
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+width: 450%;
+border: none;
+}
+
+.search-icon{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: rgb(229, 167, 32);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: rgb(42, 42, 96);
+}
+
+/* Box 4 categpories */
+
+.category{
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: center;
+    margin: 2px;
+    width: 500px;
+}
+
+.cat-1
+{
+    margin: 2px;
+    font-size: 16px;
+    width: 120px;
+}
+
+/* Box 5 signin */
+
+.signin{
+    justify-content: center;
+  
+}
+
+.signin a{
+    color: white;
+    text-decoration: none;
+}
+
+.signin a:hover{
+    text-decoration: underline;
+}
+
+.signin-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+/* logout */
+.logout-border{
+	justify-content: center;
+  
+}
+
+.logout-logo{
+    
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+.logout a{
+    color: white;
+    text-decoration: none;
+}
+
+/* .remember a:hover{
+    text-decoration: underline;
+}  */
+
+/* BOx 7 Add to cart */
+
+.cart{
+    width: 100px;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+        margin-left:4px;
+}
+.cart a{
+	color: white;
+    text-decoration: none;
+}
+
+.cart-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+    color: white;
+    text-decoration: none;
+    margin-right:14px;
+}
+
+/* Box-8 add product */
+
+.add-product{
+    width: 100px;
+    margin-top: 3px;
+
+}
+
+.product-border{
+    justify-content: center;
+    display: flex;
+    margin-top: 2px;}
+
+.product-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 3px;
+}
+
+.add-product a{
+    justify-content: center;
+    display: flex;
+    margin-top: 2px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* shop section */
+
+/* .shop-section{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0c3043;
+    margin-top: 2px;
+} */
+
+/* .box{
+ 	justify-content:center;
+ } */
+/* .col{
+    border: 2px solid black;
+    height: 200px;
+    background-color: white;
+    padding: 20px 0px 15px; 
+}
+*/
+
+.box-content{
+    /* margin-right: 0.5rem;
+    margin-left: 0.5rem; */
+    /* text-align:center; */
+/*     width: 25%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.box-content p{
+    color: #31666f;
+}
+
+.box-content a{
+    color: white;
+    text-decoration: none;
+}
+
+.box-content a:hover{
+    text-decoration: underline;
+}
+
+.box-image{
+    height: 50px;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logout a{
+	  color: white;
+    text-decoration: none;
+}
+
+.container{
+	  height: 90%;
+     /* display: flex;
+    justify-content: center;
+    align-items: center;  */
+}
+/*  .row{
+	 background-color:white;
+	width:100%;
+	height:550px;  
+    gap:10vmin;
+}
+  */
+/*  .col{
+	
+	margin-left:200px;
+	margin-top:2px;
+	margin-right:20px;
+	background-color:white;
+ 	width:25%;
+ 	height:550px;
+ 	border: 2px solid black;
+     border-radius:3px;
+    background-color: white;
+     padding: 20px 0px 15px;
+ 	height:95%;
+	gap:2vmin;
+	
+}  */
+
+.card{
+	margin-top:5px;
+    background-color: white;
+    color: black;
+     border: 2px solid black;  
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50vmin;
+    width: 100%;
+    border-radius: 10px;    
+}   
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.final-price {
+	margin-top:430px;
+	margin-left:200px;
+	border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 69%; /* Adjust width as needed */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #0c3043; /* Adjust background color as needed */
+}
+
+.card-body{
+	 margin-left:10px;
+	 
+}
+.card-box{
+	height: 45vmin;
+   flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+        gap:10vmin;
+         width: 70%;
+        margin-left:200px; 
+        margin-right:300px; 
+    background-color:#4d0000;
+}
+.card-image{
+	margin-left:5px;
+	height:350px;
+	align-items:center;
+	
+}
+
+.product{
+     display: flex;
+	margin-left:100px;
+	align-items:center;
+}
+
+ .user-id{
+     display: flex;
+ 
+ margin-top:30px;
+	margin-left:100px;
+	align-items:center;
+ }
+ 
+.card-date{
+	     display: flex;
+	margin-top:40px;
+	margin-left:100px;
+	align-items:center;
+}
+
+.card-price{
+    display: flex;
+ 	margin-top:50px;
+	margin-left:100px;
+	align-items:center; 
+} 
+
+.quantity{
+	    display: flex;
+	margin-top:60px;
+	margin-left:100px;
+	align-items:center;
+}
+
+
+.cart-logo {
+	justify-content:center;
+    display: flex;
+    margin-left: 30px;
+}
+
+.cart-logo i{
+	justify-content:center;
+    display: flex;
+    margin-left: 5px;
+}
+
+.image{
+	margin-left:200px;
+}
+
+ 
+.orders{
+font-size:20px;
+ border-radius:2px;
+ }
+ 
+ .orders a{
+ color:white;
+ }
+ 

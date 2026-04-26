@@ -1,0 +1,44 @@
+.body{
+	background-color:#204060;
+}
+
+.address-box
+{
+	background-color:#001a33;	
+	box-shadow:0 0 8px;
+	 width:70%;
+	  margin:0 auto;
+}
+
+.address
+{
+	background-color:black;	
+	color:white;
+	box-shadow:0 0 8px;
+	 margin:5px;
+}
+
+/* .modal-body
+{
+		background-color:yellow;
+		display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+	
+}
+.modal-body input
+{
+	width:190%; 
+} */
+.address-row
+{
+	width:100%;
+}
+
+.address p{
+	margin:0;
+}
+
+.buttons{
+	margin-left:200px;
+}

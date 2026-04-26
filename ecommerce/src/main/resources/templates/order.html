@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" th:href="@{CSS/Address.css}">
+
+</head>
+<body class="body">
+	<div class="navbar"></div>
+	<!--  [[${user}]] -->
+
+
+	<!--  <div class="row" >
+		<div class="col">
+			<div class="row" th:each="address : ${user.addresses}">
+				<div class="col">
+					<input type="radio" name="selectAdress" id="address"
+						onchange="handlerAddress(this)">
+						</div>
+					<div class="col" offset-1>
+						pincode:
+						<p>[[${address}]]</p>
+						City:
+						<p></p>
+						State
+						<p></p>
+						Country
+						<p></p>
+					</div>
+			</div>
+		</div>
+	</div>   -->
+	<p style="background-color: white; color: red">[[${user}]]</p>
+	<div class="address-box">
+		<h3 style="margin-left: 450px; color:white;">Select a delivery address</h3>
+		<div class="col">
+			<div class="address" th:each="address : ${user.addresses}">
+				<div class="col-1">
+					<input type="radio" name="address" th:value="${address.addressId}"
+						onChange="handlerAddress(this)">
+				</div>
+			<p class="col" th:text="${user.username} + ' ' + ${address.city} + ' ' + ${address.state} + ' ' + ${address.country} + ' ' + ${address.pincode} + ' ' + ${user.phoneNumber}"></p>
+				<div>
+					<a href="#">add delivery instructions</a>
+				</div>
+			</div> 
+		</div>
+	</div>
+
+	<div class="buttons">
+	<div class="container mt-3">
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#myModal">Add new address</button>
+	</div>
+	<div class="container mt-3">
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-target="#myModal1">Payment Mode</button>
+			</div>
+			
+	<div class="container mt-3">
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="reviewBankDetails()"
+				data-bs-target="#myModal2">Order</button>
+	</div>
+	
+	</div>
+	
+	<!--POP up for orders  -->
+	
+	
+		<!-- The Modal -->
+	<div class="modal" id="myModal2">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">SELECT ORDER</h4>
+			<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+			
+
+				<!-- Modal body -->
+				<div class="modal-body">
+				
+					<form action="saveBankProcessingDetails" method="post">
+					<div class="row" style="box-shadow: 0 0 8px;">
+						<div class="col">
+							<div class="row" th:each="order:${orders}" style="box-shadow: 0 0 8px; margin: 5px;">
+								<div class="col-1"><input type="radio"></div>
+								<p class="col" th:text="${order.orderId} + ' ' + ${order.totalPrice} + ' ' + ${order.statusType} + ' ' + ${order.orderDate} + ' ' + ${order.userId}"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="">
+					<h1>Review Bankdetails</h1>
+					<div id="bankDetail"></div>
+					</div>
+						<!-- <div class="col" th:each="order:${orders}">
+						<div class="address-row">Pincode: <input type="text" th:value="${order.orderId}" name='pincode'></input></div>
+						<div class="address-row"> City: <input type="text"  th:value="${order.totalPrice}" name='city'></input></div>
+						<div class="address-row"> State: <input type="text"  th:value="${order.orderDate}" name='state'></input></div>
+						<div class="address-row">Country: <input type="text" th:value="${order.statusType}" name='country'></input></div>
+						</div> -->
+						
+						
+						<input type="submit" value="Submit"></input>
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	<!--POP UP FOR ADDRESS  -->
+	
+	<!-- The Modal -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Add Address</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+			
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form action="saveAddress" method="post">
+						<div class="address-row">Pincode: <input type="text" placeholder="Enter your pincode" name='pincode'></input></div>
+						<div class="address-row"> City: <input type="text" placeholder="Enter your city" name='city'></input></div>
+						<div class="address-row"> State: <input type="text" placeholder="Enter your state" name='state'></input></div>
+						<div class="address-row">Country: <input type="text" placeholder="Enter your country" name='country'></input></div>
+						<input type="submit" value="Submit"></input>
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!--POP UP FOR PAYMENT -->
+
+	<!-- The Modal -->
+	<div class="modal" id="myModal1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Modal Heading</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+
+				<!-- Modal body -->
+				<!-- <div class="modal-body">
+					<form action="savePayment" method="post">
+						<input type="radio" name="paymentMode" value="upi"
+							id="upi" onchange="handlerPayment(upi)">UPI<br>
+						<div>
+							<div>
+								<input type="text" placeholder="Enter Upi id" name="upiId"
+									id="upiId" />
+							</div>
+						</div>
+						<input type="radio" name="paymentMode" value="Online banking"
+							id="onlineBanking" onchange="handlerPayment(onlineBanking)">Online banking<br>
+						<div>
+							<div>
+								<input type="text" placeholder="Enter bank name" name="bankName" />
+							</div>
+							<div>
+								<input type="text" placeholder="Enter account number"
+									name="accountNumber" />
+							</div>
+						</div>
+						<input type="radio" name="paymentMode" value="Credit card" id="creditCard"
+							onchange="handlerPayment(creditCard)">Credit Card<br>
+						<div>
+							<div>
+								<input type="text" placeholder="Enter credit card number"
+									name="cardNumber" />
+							</div>
+							<div>
+								<input type="date" placeholder="Enter credit card expiry date"
+									name="cardExpiryDate" />
+							</div>
+						</div>
+						<input type="radio" name="paymentMode" value="Cash on delivery" id="cod"
+							onchange="handlerPayment(cashOnDelivery)">COD<br> <input
+							type="submit" value="Submit"></input>
+					</form>
+				</div> -->
+				
+				<div class="modal-body">
+    <form action="saveBankProcessingDetails" onsubmit="saveBankProcessingDetails(event)">
+    
+    
+    <!-- Upi id details -->   
+        <input type="radio" name="paymentMode" value="upi"  onchange="handlerPayment(this)">UPI<br>
+        <div id="upiFields" style="display: none;"> 
+         <div>           
+          <input type="text" placeholder="Enter Upi id" name="upiId" id="upiId" onInput="handlerUpiId()" />
+            </div>
+        </div>
+        
+        <!-- Online banking details -->
+        <input type="radio" name="paymentMode" value="onlineBanking" onchange="handlerPayment(this)">Online banking<br>
+        <div id="onlineBankingFields" style="display: none;">
+            <div>
+                <input type="text" placeholder="Enter bank name" name="bankName" id= "bankName" onInput="handlerOnlineBanking()" />
+            </div>
+            
+            <div>
+                <input type="text" placeholder="Enter account number" name="accountNumber" id= "accountNumber"  onInput="handlerOnlineBanking()" />
+            </div>
+        </div>
+        
+        <!-- Credit card details -->
+        <input type="radio" name="paymentMode" value="creditCard" onchange="handlerPayment(this)">Credit Card<br>
+        <div id="creditCardFields" style="display: none;">
+            <div>
+                <input type="text" placeholder="Enter credit card number" name="cardNumber" id="cardNumber" onInput="handlerCreditCard()" />
+            </div>
+            <div>
+                <input type="date" placeholder="Enter credit card expiry date" name="cardExpiryDate" id="cardExpiryDate"  onInput="handlerCreditCard()"/>
+            </div>
+        </div>
+        
+        <!-- Cash On delivery details -->
+        <input type="radio" name="paymentMode" value="cashOnDelivery" id="cashOnDelivery" onchange="handlerPayment(this)" onInput="handlerCashOnDelivery()">COD<br>
+        <input type="submit" value="Submit"></input>
+    </form>
+</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script th:src="@{js/Order.js}"></script>
+
+</body>
+</html>

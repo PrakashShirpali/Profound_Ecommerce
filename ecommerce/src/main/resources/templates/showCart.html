@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" th:href="@{CSS/showCart.css}">
+</head>
+<body class="body">
+<!--  <form action="" method="post">
+ -->          <!-- box 1 logo -->
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo"></div>
+            </div>
+
+            <!-- box 2= address -->
+
+            <div class="nav-address border">
+                <p>Deliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                   <div class="add-sec"> <p>India</p></div>
+                </div>
+            </div>
+
+            <!-- Box 3 search-->
+
+            <div class="nav-search">
+                <input placeholder="search" class= "search-input">
+                <div class="search-icon">
+                    <i class="fa-brands fa-searchengin"></i>
+                </div>
+            </div>
+
+            <!-- bOx 4 categories -->
+
+            <div class="category">
+                <li class="cat-1 border"> FASHION</li>
+                <li class="cat-1 border" > GADGETS</li>
+                <li class="cat-1 border"> FOOTWEAR</li>
+            </div>
+
+            <!-- Box 5 Signin -->
+
+           <div class="signin border" th:unless="${user}">
+               	<a href="login"><p>Hello, sign-in</p>
+              <div class="signin-logo"><i class="fa-solid fa-right-to-bracket"></i>
+              </div>
+              </a>
+			 </div>
+            
+            <div class="logout border" th:if="${user}">
+                <div class="logout-page" ><a href="logout"><p>logout</p>
+               	<div class="logout-logo"> <i class="fa-solid fa-right-to-bracket"></i></div>
+                </div>
+                </a>
+            </div> 
+
+            <!-- Box 6 cart -->
+
+            <div class="cart border" >
+              <a href="showCart"><p>Show cart</p></a>
+              <div class="cart-logo"><i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+            
+             <!-- Box 7 add product -->
+            <!-- <p th:text="${user.userType}"></p> -->
+            <div class="add-product border" th:if="${user != null and user.userType == 'ADMIN'}">
+            	
+                <div class="product-border"><a href="product"><p>Add Product</p></div>
+               <div class="product-logo"><i class="fa-brands fa-product-hunt"></i></div>
+                </a>
+            </div>
+                     
+        </div>
+	<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Body -->
+<div class="card-box">
+  <div class="card" th:each="cart:${products}">
+    <div class="image">
+      <img class="card-image border" th:src="'data:image/jpeg;base64,'+${cart.imagePath}">
+    </div>
+    <div class="card-body">
+      <div class="productname">
+        <div class="product">
+          <h4>Product Name : </h4> <h4 class="card-title" th:text=" ${cart.productName}"></h4>
+        </div>
+        <div class="user-id">
+          <h4>User Id :</h4><h4 th:text="${cart.userId}"></h4>
+        </div>
+      </div>
+      <div class="card-date">
+        <h4>Date of order : </h4> <h4 th:text="${cart.date}"></h4>
+      </div>
+      <div class="card-price">
+        <h4>Actual price : </h4><h4><i class="fa-solid fa-indian-rupee-sign"></i></h4><del><h4 th:text="${cart.price}"></h4></del>
+       <p>Discount is: </p><p th:text="${cart.discount}"></p>
+      </div>
+      <div class="card-price">
+        <h4>Product price : </h4><h4><i class="fa-solid fa-indian-rupee-sign"></i></h4><h4 th:text="${cart.totalPrice}"></h4>
+      </div>
+      <div class="quantity">
+        <h4>Quantity:</h4><h4 class="ap" th:text="${cart.quantity}"></h4>
+        
+      </div>
+          <div class="plusminus" style="display:flex" th:unless="${cart.quantity==0}">
+     <form   th:action="@{'removeFromCart?category='+${category}+'&pagename=showCart'}" method="post">
+    <input type="hidden" th:unless="${productInCart}" name="id" th:value="${cart.productId}" >
+        <button type="submit" class="btn border" name="action" value="decrement">- </button>
+        </form>
+       &nbsp;<span th:text="${cart.quantity}"></span>&nbsp;
+         <form   th:action="@{'addToCart?category='+${category}+'&pagename=showCart'}" method="post">
+    <input type="hidden" th:unless="${productInCart}" name="id" th:value="${cart.productId}" >
+    <button type="submit" class="btn border" name="action" value="increment">+</button>
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="final-price">
+  <div class="orders">
+    <a href="orderNow">Order Now</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="checkOrder">Check Order</a>
+  </div>
+  <div class="total-price">
+    <h2>Total Price: [[${finalPrice}]]</h2>
+  </div>
+</div>
+ </body>
+</html>

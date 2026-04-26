@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" th:href="@{CSS/showProduct.css}">
+</head>
+<body>
+<form action="showProduct" method="post">
+ 
+<div class="box">
+ <div class="container">
+	<div class="card">
+  	<img class="card-image" th:src="'data:image/jpeg;base64,'+${obj.imagePath}">
+  	</div>	
+  	
+    <div class="card-body">
+    <h4 class="card-title" th:text="${obj.productName}"></h4>
+    </div>
+    <div class="card-price">
+   	<p class="rupee"><i class="fa-solid fa-indian-rupee-sign"></i></p><p th:text="${obj.discountPrice}"></p>
+   	<p class="mrp">M.R.P:</p><p class="ap" th:text="${obj.getPrice}"></p>
+
+   	<p class="discount">(Discount of</p><p class="discount" th:text="${obj.discount}"></p><p class="discount">%)</p>
+   	</div>
+   	 <p><a href="showProduct">Add to cart</a></p>
+     <div class="cart-logo"><i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    </div>
+    </div>
+   </form>
+</body>
+</html> 
+

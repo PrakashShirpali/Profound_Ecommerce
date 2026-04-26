@@ -1,0 +1,375 @@
+
+/* new css -------==-=-=-=-=-=-=-=-=-=-=-==-=-=--=-=-=-=*/
+
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+}
+
+.navbar{
+    height: 60px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom:30px;
+}
+
+/* Box 1 logo */
+
+.nav-logo{
+    height: 55px;
+    width: 100px;
+}
+
+
+.logo{
+    background-image: url("/Images/amazon.jpg");
+    height: 50px;
+    width: 100px;
+    background-size: cover;
+}
+
+.border{
+    border: solid transparent;
+}
+
+.border:hover{
+    border: 2px solid white;
+}
+
+/* Box 2 address */
+
+.nav-address{
+    margin: 10px;
+}
+
+.add-icon{
+    display: flex;
+    align-items: center;
+}
+
+.add-sec{
+    margin: 3px;
+}
+
+
+/* Box 3 search */
+
+.nav-search{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: pink;
+    width: 550px;
+    height: 37px;
+    border-radius: 3px;
+}
+
+.search-input{
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+width: 450%;
+border: none;
+}
+
+.search-icon{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: rgb(229, 167, 32);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: rgb(42, 42, 96);
+}
+
+/* Box 4 categpories */
+
+.category{
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: center;
+    margin: 2px;
+    width: 500px;
+}
+
+.cat-1
+{
+    margin: 2px;
+    font-size: 16px;
+    width: 120px;
+}
+
+/* Box 5 signin */
+
+.signin{
+    justify-content: center;
+  
+}
+
+.signin a{
+    color: white;
+    text-decoration: none;
+}
+
+.signin a:hover{
+    text-decoration: underline;
+}
+
+.signin-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+/* logout */
+.logout-border{
+	justify-content: center;
+  
+}
+
+.logout-logo{
+    
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+.logout a{
+    color: white;
+    text-decoration: none;
+}
+
+/* .remember a:hover{
+    text-decoration: underline;
+}  */
+
+/* BOx 7 Add to cart */
+
+.cart{
+    width: 100px;
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+        margin-left:4px;
+}
+.cart a{
+	color: white;
+    text-decoration: none;
+}
+
+.cart-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+    color: white;
+    text-decoration: none;
+    margin-right:14px;
+}
+
+/* Box-8 add product */
+
+.add-product{
+    width: 100px;
+    margin-top: 3px;
+
+}
+
+.product-border{
+    justify-content: center;
+    display: flex;
+    margin-top: 2px;}
+
+.product-logo{
+    justify-content: center;
+    display: flex;
+    margin-top: 3px;
+}
+
+.add-product a{
+    justify-content: center;
+    display: flex;
+    margin-top: 2px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* shop section */
+
+/* .shop-section{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #0c3043;
+    margin-top: 2px;
+} */
+
+/* .box{
+ 	justify-content:center;
+ } */
+/* .col{
+    border: 2px solid black;
+    height: 200px;
+    background-color: white;
+    padding: 20px 0px 15px; 
+}
+*/
+
+.box-content{
+    /* margin-right: 0.5rem;
+    margin-left: 0.5rem; */
+    /* text-align:center; */
+/*     width: 25%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.box-content p{
+    color: #31666f;
+}
+
+.box-content a{
+    color: white;
+    text-decoration: none;
+}
+
+.box-content a:hover{
+    text-decoration: underline;
+}
+
+.box-image{
+    height: 50px;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logout a{
+	  color: white;
+    text-decoration: none;
+}
+
+.container{
+	width:100%;
+}
+.row{
+	background-color:#0c3043;
+	width:100%;
+	height:550px;
+	display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:10vmin;
+}
+
+.col{
+	
+	margin-left:20px;
+	margin-top:2px;
+	margin-right:20px;
+	border: 2px solid black;
+    border-radius:3px;
+    background-color: white;
+    /* padding: 20px 0px 15px; */
+	
+	height:95%;
+	width:800px; 
+	gap:2vmin;
+}
+
+/* .card{
+	 height: 60px;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+} */
+
+.card-image{
+	height:350px;
+	margin-left:20px;
+	margin-top:10px;
+	
+}
+
+.card-title{
+	margin-top:5px;
+	height:40px;
+	margin-left:40%;
+}
+
+.card-price{
+	margin-top:5px;
+	height:40px;
+ 	margin-left:10px;	
+ 	display: flex;
+ 	font-size:20px;
+    align-items: center;
+    /* justify-content:center; */
+    gap:4px;  
+}
+
+.rupee{
+	font-size:13px;
+	margin-bottom:5px;
+}
+.mrp{
+	font-size:13px;
+	margin-top:4px;
+}
+
+.discount{
+	font-size:15px;
+	margin-top:4px;
+} 
+.ap{
+	font-size:13px;
+	margin-top:4px;
+}
+
+.card-more{
+	margin-bottom:30px;
+	color: balck;
+    text-decoration: none;
+    margin-left:13px;
+    display: flex;
+    gap:130px;
+    align-items: center;
+    /* justify-content: space-between; */
+	
+}
+
+.cart-logo i{
+	justify-content:center;
+    
+    display: flex;
+    margin-top: 5px;
+}
+
+.cart sup{
+	margin-left:7px;
+}
+
+.btn{
+    color: black;
+    text-decoration: none;
+    /* font-size:10px; */
+}
+
+/* .cart-logo i{
+	justify-content:center;
+    display: flex;
+    margin-top: 30px;
+}
+ */
+
+/* ========================================== Address box */
+
+.Address-box{
+	border: 3px;
+}
+

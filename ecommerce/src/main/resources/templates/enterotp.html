@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+[[${msg}]]
+<form action="isotpcorrect" method="POST">
+<input type="text" placeholder="Enter otp" name="otp">
+<input type="submit" value="submit">
+</form>
+<form action="sendotp" method="POST">
+<button type="submit">Resend Otp</button>
+<p id="timingDisplay"></p>
+
+</form>
+<script th:inline="javascript">
+		//check GlobalControllerAdvice java file in controller package
+		//console.log(/[[${otpCreationTime2}]]/)
+
+		let timeDifference = 0
+	
+		var localDateTime = /*[[${formattedDateTime}]]*/null;
+
+		if (localDateTime) {
+			var jsDate = new Date(localDateTime);
+			var currentDate = new Date();
+			var timeDifference1 = currentDate - jsDate;
+
+			// Convert milliseconds to seconds
+			timeDifferenceInSeconds = Math.floor(timeDifference1 / 1000);
+			timeDifference = 60 - timeDifferenceInSeconds
+
+			console.log(jsDate);
+			console.log(currentDate)
+			console.log("Time difference in seconds: "
+					+ timeDifferenceInSeconds);
+			// Now you can use jsDate in your JavaScript code
+		} else {
+			console.error("LocalDateTime is not available.");
+		}
+		
+		if(timeDifference<0){
+			timeDifference=0
+		}
+
+		function updateTiming() {
+			document.getElementById('timingDisplay').innerText = `Timing: ${timeDifference} seconds`;
+			timeDifference--; // Simulate the passage of one second
+
+			if (timeDifference >= 0) {
+				setTimeout(updateTiming, 1000); // Update every second
+				document.getElementById("timingDisplay").style.color='green';
+				
+			}
+			if(timeDifference<=15)
+			{
+				document.getElementById("timingDisplay").style.color='red';
+			}
+			
+		}
+		// Start updating the timing display
+		setTimeout(updateTiming, 1000); // Initial delay of 1 second
+	</script>
+</body>
+</html>
